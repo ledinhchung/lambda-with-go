@@ -39,6 +39,21 @@ Resources:
           Properties:
             Path: /
             Method: get
+  Sum:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: sum
+      Runtime: go1.x
+      Role:
+        Fn::GetAtt:
+        - LambdaExecutionRole
+        - Arn
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /sum/{x}/{y}
+            Method: get
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
     Type: AWS::IAM::Role
