@@ -18,7 +18,7 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 
 	return events.APIGatewayProxyResponse{
 		StatusCode: 200,
-		Body:       string(index),
+		Body:       string("Welcome to Golang"),
 		Headers: map[string]string{
 			"Content-Type": "text/html",
 		},
