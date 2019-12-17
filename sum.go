@@ -1,4 +1,4 @@
-package main
+package sum
 
 import (
 	"io/ioutil"
@@ -9,7 +9,7 @@ import (
 
 // Handler is executed by AWS Lambda in the main function. Once the request
 // is processed, it returns an Amazon API Gateway response object to AWS Lambda
-func Handler2(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 
 	index, err := ioutil.ReadFile("public/index.html")
 	if err != nil {
@@ -26,6 +26,6 @@ func Handler2(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResp
 
 }
 
-func sum() {
-	lambda.Start(Handler2)
+func main() {
+	lambda.Start(Handler)
 }
